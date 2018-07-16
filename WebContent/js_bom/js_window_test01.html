@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function testConfirm() {
+		//confirm창에서 선택하는 것을 result에 저장
+		result = window.confirm("정말 삭제할꺼냐?");
+		//alert(result);
+		if (result) {
+			alert("실제 db에서 삭제하는 작업을 수행 -state값 변경");
+		} else {
+			alert("취소");
+		}
+	}
+	function searchAddress() {
+		//창을 오픈하기 위한 함수
+		popup = window
+				.open("js_popup.html", "mywin",
+						"width=300, height=300, top=100, left=100, toolbar=yes, status=yes");
+	}
+	function idcheck() {
+		alert(window.document.kitri.id.value);
+		//부모창에 선택한 주소에 대한 상세주소와 우편번호를 출력
+		popup2 = window
+				.open("js_popup.html", "mywin2",
+						"width=300, height=300, top=100, left=100, toolbar=yes, status=yes");
+		/* popup2.document.mypopup.addr.value = document.kitri.id.value; */
+		window.close();//
+	}
+	function test_number(){
+		alert(kitri.num1.value);
+		alert(kitri.num2.value);
+		
+		num1 = parseInt(kitri.num1.value);
+			/* document.kitri.num11.value; */
+		num2 = parseInt(kitri.num2.value);
+		    /* document.kitri.num11.value; */
+		
+		kitri.result = num1+num2;
+		/* result = num1+num2 */
+		
+	}
+	function test_number2(){
+		alert("isNaN결과==>"+isNaN(kitri.num1.value));
+		/* alert("eval결과==>"+eval(kitri.num1.value));//보안 취약한 메소드 */
+		data = kitri.num1.value;
+		alert("문자열의 길이=>"+data.length);
+		data2 = data.trim();
+		alert("공백을 제거한 문자열의 길이=>"+data2.length);
+		
+	}
+</script>
+</head>
+<body>
+	<button onClick="window.alert('경고창')">경고창</button>
+	<button onClick="testConfirm()">확인창</button>
+	<button onClick="test_number()">숫자처리메서드</button>
+	<button onClick="test_number2()">숫자처리메서드2</button>
+	<button onClick="window.close()">닫기</button>
+
+	<form action="" name="kitri">
+		아이디 : <input type="text" name="id"> <input type="button"
+			value="아이디체크" onClick="idcheck()"> 우편번호 : <input type="text"
+			name="zipcode" value="test"> <input type="button"
+			value="SEARCH ADDRESS" onClick="searchAddress()"> <br/>
+		상세주소 : <input type="text" name="address"><br/> <input
+			type="submit" value="SEND"><br/>
+		숫자1 : <input type="text" name="num1" onclick="test_number"><br/>
+		숫자2 : <input type="text" name="num2" onclick="test_number"><br/>
+		결과 : <input type="text" name="result">
+		<button onClick="test_number()" type="button">결과</button>
+	</form>
+</body>
+</html>

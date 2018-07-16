@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function insertP() {
+		/* alert("insertP"); */
+		var pNode = document.createElement("p");
+		pNode.setAttribute("style", "background: yellow");
+		var textNode = document.createTextNode("newP");
+		parentNode = document.getElementById("root");
+		pNode.appendChild(textNode);
+		parentNode.appendChild(pNode);
+		/* newPNode = document.createElement("p");
+		newTextNode = document.createTextNode("newP");
+		newPNode.setAttribute("style", "background: yellow");
+		destNode = document.getElementById("root");
+		newPNode.appendChild(newTextNode);
+		destNode.appendChild(newPNode); */
+	}
+
+	function deleteP() {
+		/* alert("delecteP"); */
+		if (parentNode.lastChild.nodeName == "#text") {
+			parentNode.removeChild(parentNode.lastChild);
+		}
+		parentNode = document.getElementById("root");
+		/* delNode = parentNode.lastChild;
+		parentNode.removeChild(delNode); */
+		parentNode.removeChild(parentNode.lastChild);
+	}
+
+	function deleteDivAndP(){
+		/* alert("deleteDivAndP"); */
+		parentNode = document.getElementById("root");
+		nodelist = parentNode.lastChild;
+		size = nodelist.length;
+		/* alert(parentNode.lastChild); */
+		for(i=0;i<size;i++){
+			alert(size);
+			parentNode.removeChild(parentNode.lastChild);
+		}
+		/* while (parentNode.hasChildNodes()) {
+			parentNode.removeChild(parentNode.lastChild);
+		} */
+	}
+</script>
+</head>
+<body>
+	<div id="layer"></div>
+
+	<hr>
+
+	<div id="root">
+		<p style="background: gray;">line01</p>
+		<p style="background: skyblue">line02</p>
+		<p style="background: green;">line03</p>
+		<p style="background: red;">line04</p>
+	</div>
+
+	<hr>
+	<button onclick="insertP()">P태그추가하기</button>
+	<button onclick="deleteP()">P태그삭제하기</button>
+	<button onclick="deleteDivAndP()">div안의 모든 p태그 삭제하기</button>
+	<button onclick="innerHTML_test()">innerHTML</button>
+
+
+</body>
+</html>

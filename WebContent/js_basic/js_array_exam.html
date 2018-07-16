@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+	
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+		//오늘 날짜를 ____년 ____월 ____일 ____요일의 형태로 출력
+		//단, 요일은 배열을 이용해서 작업
+		today = new Date();
+		year = today.getFullYear();
+		month = today.getMonth() + 1;
+		date = today.getDate();
+		day = today.getDay();
+		dayArray = new Array("일", "월", "화", "수", "목", "금", "토");
+		document.write(year + "년 " + " " + month + "월 " + date + "일 "
+				+ dayArray[day] + "요일"+"</br>");
+		
+		//toLocaleDateString()은 작업하는 PC의 locale정보에 지정되어 있는
+		//날짜 표기법으로 객체의 요일 정보를 리턴
+		//운영체제에 설정되어 있는 locale정보에 맞는 형태로 변환
+		//한국 - ____년 ____월 ____일
+		//미국 - ____월/____일/____년
+		weekday = new Array("일요일","월요일","화요일","수요일","목요일","금요일","토요일");
+		day = today.getDay();
+		document.write(today.toLocaleDateString()+" "+weekday[day]);		
+	</script>
+</body>
+</html>

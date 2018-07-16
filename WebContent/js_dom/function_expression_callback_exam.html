@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="EUC-KR">
+	<title>Insert title here</title>
+	<script type="text/javascript">
+		//페이지가 로딩된 후에 자바스크립트 명령문을 실행하겠다는 의미
+		window.onload = function(){
+			document.getElementById("btn1").onclick = function name(){
+				alert("1번 버튼이 눌러짐")
+			}
+			document.getElementById("btn2").onclick = test2
+			document.getElementById("btn3").onclick = function name(){
+				alert("3번 버튼이 눌러짐")
+			}
+			document.getElementById("btn4").onclick = function name(){
+				alert("4번 버튼이 눌러짐")
+				test2();//함수의 명시적 호출
+			}
+			
+		}
+		function test2(){
+			alert("버튼2가 눌러짐 ---- callback으로 호출")
+		}
+	</script>
+</head>
+<body>
+	<form>
+		<input type="button" value="1번버튼" id="btn1"/>
+		<input type="button" value="2번버튼" id="btn2"/>
+		<input type="button" value="3번버튼" id="btn3"/>
+		<input type="button" value="4번버튼" id="btn4"/>
+	</form>
+	<!-- <script type="text/javascript">
+		document.getElementById("btn1").onclick = function name(){
+			alert("1번 버튼이 눌러짐")
+		}
+		
+		document.getElementById("btn2").onclick = function name(){
+			alert("2번 버튼이 눌러짐")
+		}
+		
+		document.getElementById("btn3").onclick = function name(){
+			alert("3번 버튼이 눌러짐")
+		}
+		
+		document.getElementById("btn4").onclick = function name(){
+			alert("4번 버튼이 눌러짐")
+		}
+	</script> -->
+</body>
+</html>
